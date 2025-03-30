@@ -1,8 +1,13 @@
-import { Response, Request } from "express";
+import { Request, Response } from "express";
 import Vehicle from "../models/vehicle.model";
-import mongoose from "mongoose";
 import { IVehicle } from "../types/vehicleTypes";
+import mongoose from "mongoose";
 
+/**
+ * @description Retrieves all vehicles from the database.
+ * @param {Request} _req - The Express request object.
+ * @param {Response} res - The Express response object.
+ */
 export const getVehicles = async (_req: Request, res: Response) => {
   try {
     const vehicles = await Vehicle.find({});
@@ -12,6 +17,11 @@ export const getVehicles = async (_req: Request, res: Response) => {
   }
 };
 
+/**
+ * @description Creates a new vehicle in the database.
+ * @param {Request} req - The Express request object containing the vehicle data to be created.
+ * @param {Response} res - The Express response object.
+ */
 export const createVehicle = async (req: Request, res: Response) => {
   const vehicle: IVehicle = req.body;
 
@@ -40,6 +50,11 @@ export const createVehicle = async (req: Request, res: Response) => {
   }
 };
 
+/**
+ * @description Updates an existing vehicle in the database.
+ * @param {Request} req - The Express request object containing the vehicle data and vehicle id to update.
+ * @param {Response} res - The Express response object.
+ */
 export const updateVehicle = async (req: Request, res: Response) => {
   const { id } = req.params;
   const vehicle = req.body;
@@ -49,20 +64,25 @@ export const updateVehicle = async (req: Request, res: Response) => {
   }
 
   try {
-    const updateVehicle = await Vehicle.findByIdAndUpdate(id, vehicle, {
+    const updatedVehicle = await Vehicle.findByIdAndUpdate(id, vehicle, {
       new: true,
     });
 
-    if (!updateVehicle) {
+    if (!updatedVehicle) {
       res.status(404).json({ success: false, message: "Vehicle not found" });
     }
 
-    res.status(200).json({ success: true, data: updateVehicle });
+    res.status(200).json({ success: true, data: updatedVehicle });
   } catch (error) {
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
+/**
+ * @description Deletes a vehicle from the database by its id.
+ * @param {Request} req - The Express request object containing the vehicle id to delete.
+ * @param {Response} res - The Express response object.
+ */
 export const deleteVehicle = async (req: Request, res: Response) => {
   const { id } = req.params;
 
