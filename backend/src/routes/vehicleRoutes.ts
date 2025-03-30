@@ -1,21 +1,22 @@
-import { Router, Request, Response } from "express";
-import { IVehicle } from "../types/vehicleTypes";
-import Vehicle from "../models/vehicle.model";
-import mongoose from "mongoose";
+import { Request, Response, Router } from "express";
 import {
   createVehicle,
   deleteVehicle,
   getVehicles,
   updateVehicle,
 } from "../controllers/vehicle.controller";
+import {
+  validationsResult,
+  vehicleValidations,
+} from "../utils/validations/vehicleValidations";
 
 const router = Router();
 
 router.get("/", getVehicles);
 
-router.post("/", createVehicle);
+router.post("/", ...vehicleValidations, validationsResult, createVehicle);
 
-router.put("/:id", updateVehicle);
+router.put("/:id", ...vehicleValidations, validationsResult, updateVehicle);
 
 router.delete("/:id", deleteVehicle);
 

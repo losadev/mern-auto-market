@@ -31,13 +31,11 @@ export const createVehicle = async (req: Request, res: Response) => {
   }
 
   const newVehicle = new Vehicle(vehicle);
-  console.log(newVehicle);
 
   try {
     await newVehicle.save();
     res.status(201).json({ success: true, message: "New vehicle created" });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ success: false, message: "Server Internal Error" });
   }
 };
