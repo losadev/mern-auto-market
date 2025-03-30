@@ -4,24 +4,8 @@ import {
   FuelType,
   TransmissionType,
 } from "../enums/vehicle.enum";
+import { IVehicle } from "../types/vehicleTypes";
 
-interface IVehicle {
-  make: string; // Marca del vehículo
-  model: string; // Modelo del vehículo
-  year: number; // Año de fabricación
-  price: number; // Precio del vehículo
-  mileage: number; // Kilometraje
-  fuelType: FuelType; // Tipo de combustible
-  transmission: TransmissionType; // Tipo de transmisión
-  condition: ConditionType; // Estado del vehículo
-  description?: string; // Descripción detallada del vehículo
-  images?: string[]; // URLs de las imágenes
-  location?: string; // Ubicación
-  createdAt: Date; // Fecha de publicación
-  updatedAt: Date; // Fecha de última actualización
-}
-
-// Definición del esquema del vehículo con los Enums
 const vehicleSchema = new Schema<IVehicle>({
   make: { type: String, required: true },
   model: { type: String, required: true },

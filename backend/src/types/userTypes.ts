@@ -1,0 +1,20 @@
+import { UserType } from "../enums/user.enum";
+import { IVehicle } from "./vehicleTypes";
+
+export interface IUser {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: number;
+  role: UserType;
+  address: string;
+  location: string;
+  profilePicture: string;
+  createdAt: Date;
+  updatedAt: Date;
+  isVerified: boolean;
+  cart: IVehicle[];
+  purchaseVehicles: IVehicle[];
+  wishList: IVehicle[];
+}
