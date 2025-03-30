@@ -1,14 +1,17 @@
 import express from "express";
+import dotenv from "dotenv";
+import vehicleRouter from "./routes/vehicleRoutes";
+import { connectDB } from "./config/db";
+
+dotenv.config();
 const app = express();
 app.use(express.json());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.get("/pong", (_req, res) => {
-  console.log("someone pinged here");
-  res.send("pong");
-});
+app.use("/api/vehicles", vehicleRouter);
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  connectDB();
+  console.log(`Server running on http://localhost:${PORT}/`);
 });

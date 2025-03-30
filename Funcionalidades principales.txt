@@ -1,0 +1,32 @@
+📌 Funcionalidades principales
+✅ CRUD de vehículos: Agregar, editar, eliminar y listar autos.
+✅ Filtros y búsqueda: Buscar por marca, modelo, precio, año, etc.
+✅ Galería de imágenes: Subir fotos de los autos.
+✅ Descripción y detalles: Motor, kilometraje, estado (nuevo/usado), etc.
+✅ Interfaz interactiva: React con Tailwind o Material UI.
+✅ Backend con Express y MongoDB: Guardar y gestionar datos.
+
+
+Código de estado:
+
+201 (Created) → Cuando el vehículo se crea correctamente.
+
+400 (Bad Request) → Si faltan datos obligatorios o los datos son inválidos.
+
+500 (Internal Server Error) → Si ocurre un error en el servidor
+
+Ruta: GET /api/vehicles
+📌 Código de estado:
+
+200 (OK) → Si se devuelven los vehículos correctamente.
+
+500 (Internal Server Error) → Si hay un problema en el servidor.
+
+
+📌 Resumen de códigos de estado
+Código	Significado
+200 -> OK	Operación exitosa.
+201 -> Created	Recurso creado correctamente.
+400 -> Bad Request	Datos enviados incorrectos o incompletos.
+404 -> Not Found	No se encontró el recurso solicitado.
+500 -> Internal Server Error	Error en el servidor.
