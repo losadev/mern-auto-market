@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { UserType } from "../enums/user.enum";
+import { UserType } from "../utils/enums/user.enum";
 import { IUser } from "../types/userTypes";
 
 const userSchema = new Schema<IUser>({

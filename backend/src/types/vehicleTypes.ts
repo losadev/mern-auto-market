@@ -2,7 +2,7 @@ import {
   ConditionType,
   FuelType,
   TransmissionType,
-} from "../enums/vehicle.enum";
+} from "../utils/enums/vehicle.enum";
 
 export interface IVehicle {
   make: string; // Marca del vehículo
