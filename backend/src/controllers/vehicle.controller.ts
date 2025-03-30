@@ -25,21 +25,6 @@ export const getVehicles = async (_req: Request, res: Response) => {
 export const createVehicle = async (req: Request, res: Response) => {
   const vehicle: IVehicle = req.body;
 
-  if (
-    !vehicle.make ||
-    !vehicle.model ||
-    !vehicle.year ||
-    !vehicle.price ||
-    !vehicle.mileage ||
-    !vehicle.fuelType ||
-    !vehicle.condition ||
-    !vehicle.transmission
-  ) {
-    res
-      .status(400)
-      .json({ success: false, message: "Couldn't create a new vehicle" });
-  }
-
   const newVehicle = new Vehicle(vehicle);
 
   try {

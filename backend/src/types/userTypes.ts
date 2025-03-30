@@ -1,4 +1,4 @@
-import { UserType } from "../enums/user.enum";
+import { UserType } from "../utils/enums/user.enum";
 import { IVehicle } from "./vehicleTypes";
 
 export interface IUser {
@@ -10,11 +10,11 @@ export interface IUser {
   role: UserType;
   address: string;
   location: string;
-  profilePicture: string;
+  profilePicture?: string;
   createdAt: Date;
   updatedAt: Date;
-  isVerified: boolean;
-  cart: IVehicle[];
-  purchaseVehicles: IVehicle[];
-  wishList: IVehicle[];
+  isVerified?: boolean;
+  cart?: IVehicle[];
+  purchaseVehicles?: IVehicle[];
+  wishList?: IVehicle[];
 }

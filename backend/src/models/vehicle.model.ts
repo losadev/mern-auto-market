@@ -3,7 +3,7 @@ import {
   ConditionType,
   FuelType,
   TransmissionType,
-} from "../enums/vehicle.enum";
+} from "../utils/enums/vehicle.enum";
 import { IVehicle } from "../types/vehicleTypes";
 
 /**
