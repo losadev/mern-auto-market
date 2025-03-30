@@ -46,12 +46,10 @@ router.post("/", async (req: Request, res: Response) => {
 
 router.put("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
-  const vehicle = req.body; // Aquí desestructuramos directamente el body
+  const vehicle = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res
-      .status(400)
-      .json({ success: false, message: "Invalid product id" });
+    res.status(400).json({ success: false, message: "Invalid product id" });
   }
 
   try {
@@ -60,14 +58,12 @@ router.put("/:id", async (req: Request, res: Response) => {
     });
 
     if (!updateVehicle) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Vehicle not found" });
+      res.status(404).json({ success: false, message: "Vehicle not found" });
     }
 
     res.status(200).json({ success: true, data: updateVehicle });
   } catch (error) {
-    return res.status(500).json({ success: false, message: "Server error" });
+    res.status(500).json({ success: false, message: "Server error" });
   }
 });
 
