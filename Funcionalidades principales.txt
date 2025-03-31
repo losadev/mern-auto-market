@@ -30,3 +30,12 @@ Código	Significado
 400 -> Bad Request	Datos enviados incorrectos o incompletos.
 404 -> Not Found	No se encontró el recurso solicitado.
 500 -> Internal Server Error	Error en el servidor.
+
+##Frontend:
+
+- Paquetes:
+    1. React-hook-form.
+    2. Zustand.
+    3. Tailwind CSS
+    4. Zod
+    5. React-router

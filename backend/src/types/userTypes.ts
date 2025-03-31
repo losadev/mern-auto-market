@@ -2,6 +2,7 @@ import { UserType } from "../utils/enums/user.enum";
 import { IVehicle } from "./vehicleTypes";
 
 export interface IUser {
+  id: string;
   email: string;
   password: string;
   firstName: string;
