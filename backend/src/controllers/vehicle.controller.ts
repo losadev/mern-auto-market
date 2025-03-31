@@ -23,6 +23,10 @@ export const getVehicles = async (_req: Request, res: Response) => {
  * @param {Response} res - The Express response object.
  */
 export const createVehicle = async (req: Request, res: Response) => {
+  if (!req.user.role || req.user.role !== "ADMIN") {
+    return res.status(403).json({ message: "Forbidden" });
+  }
+
   const vehicle: IVehicle = req.body;
 
   const newVehicle = new Vehicle(vehicle);

@@ -5,6 +5,8 @@ import { connectDB } from "./config/db";
 import userRouter from "./routes/userRoutes";
 import session from "express-session";
 import passport from "./config/passportConfig";
+import jwt from "jsonwebtoken";
+import { IUser } from "./types/userTypes";
 
 dotenv.config();
 const PORT = process.env.PORT ?? 3000;
@@ -32,11 +34,7 @@ app.use("/api/register", userRouter);
 app.post("/api/login", (req: Request, res: Response, next: NextFunction) => {
   passport.authenticate(
     "local",
-    (
-      err: Error | null,
-      user: Express.User | false,
-      info: { message: string }
-    ) => {
+    (err: Error | null, user: IUser | false, info: { message: string }) => {
       if (err)
         return res.status(500).json({ success: false, message: err.message });
       if (!user)
@@ -47,7 +45,16 @@ app.post("/api/login", (req: Request, res: Response, next: NextFunction) => {
             .status(500)
             .json({ success: false, message: loginErr.message });
         }
-        res.json({ success: true, message: "Logged in successfully", user });
+        const token = jwt.sign({ id: user.id, role: user.role }, SECRET, {
+          expiresIn: "1h",
+        });
+
+        res.json({
+          success: true,
+          message: "Logged in successfully",
+          user,
+          token,
+        });
       });
     }
   )(req, res, next);
