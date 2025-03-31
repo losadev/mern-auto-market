@@ -1,11 +1,10 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import Layout from "./components/Header/layout/Layout";
 
 function App() {
 
   return (
     <>
-    <h1>Hola, mundo!</h1>
+    <Layout />  
     </>
   );
 }
