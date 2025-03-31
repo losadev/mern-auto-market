@@ -11,7 +11,7 @@ const userSchema = new Schema<IUser>({
   role: { type: String, enum: Object.values(UserType), required: true },
   address: { type: String, required: true },
   location: { type: String, required: true },
-  profilePicture: { type: String, required: true },
+  profilePicture: { type: String, required: false },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   isVerified: { type: Boolean, default: false },
