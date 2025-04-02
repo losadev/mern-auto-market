@@ -1,3 +1,4 @@
+import CardLayout from "./CardsLayout/CardLayout"
 import FilterLayout from "./Filter/FilterLayout"
 
 const Main = () => {
@@ -17,7 +18,7 @@ const Main = () => {
         </div>
       </div>
       <section>
-
+        <CardLayout />
       </section>
     </main>
   )

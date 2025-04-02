@@ -1,12 +1,15 @@
-import Layout from "./components/layout/Layout";
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router';
+import Layout from './components/layout/Layout';
+import LayoutCarDetails from './components/CarDetails/LayoutCarDetails';
 
 function App() {
-
   return (
-    <>
-    <Layout />  
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Layout />}/>
+        <Route path="/car-details/:id" element={<LayoutCarDetails />} /> 
+      </Routes>
+    </Router>
   );
 }
 

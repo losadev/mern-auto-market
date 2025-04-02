@@ -19,7 +19,7 @@ const FilterLayout = () => {
   }
 
   return (
-    <div className="flex flex-col px-2 gap-4 py-4">
+    <div className="flex flex-col px-4 gap-4 py-4">
       <div className="flex justify-between items-center">
         <SearchTypesButtons hiddenAdvanced={advancedFilter} hiddenSearch={filterSearch} handleClickAdvancedFilter={handleClickAdvancedFilter} handleClickSearchFilter={handleClickSearchFilter}/>
         <ResetFilters/>
