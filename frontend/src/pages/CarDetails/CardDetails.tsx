@@ -4,10 +4,12 @@ import ButtonContact from "./Buttons/ButtonContact";
 import CarInfo from "./CarInfo";
 
 interface CardDetailsProps {
+  id?: string | number
   condition: string;
   fuelType: string;
   make: string;
   model: string;
+  price?:number
   transmission: string;
   year: number;
   description: string;
