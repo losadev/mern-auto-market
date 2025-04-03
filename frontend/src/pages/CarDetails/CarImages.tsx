@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-const CarImages = () => {
+const CarImages = (images:string[]) => {
   const [selectedImage, setSelectedImage] = useState<number>(0)
 
+  const img2 = images;
   const img = [
     "https://wallpapercave.com/wp/wp2569872.jpg",
     "https://get.wallhere.com/photo/car-vehicle-Lamborghini-Lamborghini-Gallardo-sports-car-performance-car-wheel-supercar-land-vehicle-automotive-design-automobile-make-luxury-vehicle-city-car-138683.jpg",

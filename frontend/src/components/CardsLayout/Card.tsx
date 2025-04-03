@@ -21,7 +21,6 @@ const Card = ({tag,gasoline,miles,price,title,year, image, id}: Props) => {
   const navigate = useNavigate()
 
    const handleClick = () => {
-    // Redirige a la página de detalles del coche con su id
     navigate(`/car-details/${id}`);
   }
 
@@ -41,7 +40,7 @@ const Card = ({tag,gasoline,miles,price,title,year, image, id}: Props) => {
           <span className="flex gap-1 items-center"><MdOutlineDateRange className="mr-1 text-purple-700 text-lg"/> {year}</span>
       </div>
 
-      <div className="flex justify-between mt-4 items-center">
+      <div className="flex justify-between mt-4 items-center mb-2">
         <Button onClick={handleClick}/>  
         <SlOptionsVertical className=" text-white cursor-pointer"/>
       </div>  
