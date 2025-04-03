@@ -29,19 +29,19 @@ const LayoutCarDetails = () => {
     <GoBackLink />
     {vehicle && (
       <>
-        <CarImages images={vehicle.images || []} />
+        <CarImages images={vehicle?.images || []} />
         <CardDetails
           condition={vehicle.condition}
           fuelType={vehicle.fuelType}
           make={vehicle.make}
-          mileage={vehicle.mileage} // Aquí pasabas `vehicle`, pero debe ser `vehicle.mileage`
+          mileage={vehicle.mileage}
           id={String(id)}
-          description={vehicle.description}
+          description={vehicle.description || "No description"}
           price={vehicle.price}
           year={vehicle.year}
           model={vehicle.model}
           transmission={vehicle.transmission}
-          location={vehicle.location}
+          location={vehicle.location || "Location not available"}
         />
       </>
     )}
