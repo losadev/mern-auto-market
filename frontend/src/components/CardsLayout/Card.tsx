@@ -4,11 +4,12 @@ import { TbGasStation } from "react-icons/tb";
 import Button from "./Button";
 import { SlOptionsVertical } from "react-icons/sl";
 import { useNavigate } from "react-router";
+import { ReactNode } from "react";
 
 
 type Props = {
   id?: string
-  tag: string,
+  tag: ReactNode,
   title: string,
   year: number,
   price: number,
