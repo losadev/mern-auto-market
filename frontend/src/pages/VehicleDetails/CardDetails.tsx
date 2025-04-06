@@ -2,6 +2,7 @@ import { CiEdit } from "react-icons/ci";
 import ButtonShare from "./Buttons/ButtonShare";
 import ButtonContact from "./Buttons/ButtonContact";
 import CarInfo from "./CarInfo";
+import { useNavigate } from "react-router";
 
 interface CardDetailsProps {
   id?: string | number
@@ -17,12 +18,19 @@ interface CardDetailsProps {
   mileage: number;
 }
 
-const CardDetails = ({ condition, fuelType, make, model, transmission, year, description, location, mileage }: CardDetailsProps) => {
+const CardDetails = ({ id, condition, fuelType, make, model, transmission, year, description, location, mileage }: CardDetailsProps) => {
+
+  const navigate = useNavigate()
+
+   const handleClick = () => {
+    navigate(`/vehicle-edit/${id}`);
+  }
+
   return (
     <div>
       <div className="flex justify-evenly py-5 bg-gradient-to-r from-[#00b5c9] 0% to-[#65f5ff] 100% rounded-t-xl mt-8">
         <h1 className="font-medium text-3xl text-white">{make} {model}</h1>
-        <button className="text-lg font-medium cursor-pointer bg-sky-300 flex gap-2 justify-center items-center px-3 py-2 rounded-xl">
+        <button className="text-lg font-medium cursor-pointer bg-sky-300 flex gap-2 justify-center items-center px-3 py-2 rounded-xl" onClick={handleClick}>
           <CiEdit />
           <span>Edit</span>
         </button>

@@ -8,19 +8,19 @@ import UsedTag from "./Tags/UsedTag"
 const CardLayout = () => {
   const [vehicles, setVehicles] = useState<IVehicle[] | null>();
 
-useEffect(() => {
-  axios.get("http://localhost:5000/api/vehicles")
-  .then((response) => {
-    const normalizedVehicles = response.data.data.map((car: any) => ({
-      ...car,
-      id: car._id,  // Renombrar `_id` a `id`
-    }));
-    setVehicles(normalizedVehicles);
-  })
-  .catch((err) => {
-    console.error(err);
-  })
-}, []);
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/vehicles")
+    .then((response) => {
+      const normalizedVehicles = response.data.data.map((car: any) => ({
+        ...car,
+        id: car._id, 
+      }));
+      setVehicles(normalizedVehicles);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+  }, []);
 
 
   return (

@@ -17,16 +17,27 @@ export const getVehicles = async (_req: Request, res: Response) => {
   }
 };
 
+export const getVehicle = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    res.status(404).json({ success: false, message: "Invalid product id" });
+  }
+
+  try {
+    const vehicle = await Vehicle.findById(id);
+    res.status(200).json({ success: true, data: vehicle });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Server Internal Error" });
+  }
+};
+
 /**
  * @description Creates a new vehicle in the database.
  * @param {Request} req - The Express request object containing the vehicle data to be created.
  * @param {Response} res - The Express response object.
  */
 export const createVehicle = async (req: Request, res: Response) => {
-  if (!req.user.role || req.user.role !== "ADMIN") {
-    return res.status(403).json({ message: "Forbidden" });
-  }
-
   const vehicle: IVehicle = req.body;
 
   const newVehicle = new Vehicle(vehicle);

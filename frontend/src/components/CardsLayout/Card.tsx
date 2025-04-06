@@ -22,7 +22,7 @@ const Card = ({tag,gasoline,miles,price,title,year, image, id}: Props) => {
   const navigate = useNavigate()
 
    const handleClick = () => {
-    navigate(`/car-details/${id}`);
+    navigate(`/vehicle-details/${id}`);
   }
 
 
